@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Kaynak ve hedef dizinleri tanımla
+kaynak_dizin="datas"
+hedef_dizin="backup"
+
+# Eğer "spare" dizini yoksa oluştur
+if [ ! -d "$hedef_dizin" ]; then
+    mkdir "$hedef_dizin"
+    echo "'$hedef_dizin' dizini oluşturuldu."
+fi
+
+# "datas" dizinindeki tüm dosyaları ve dizinleri "spare" dizinine kopyala
+cp -r "$kaynak_dizin"/* "$hedef_dizin"/
+echo "Tüm dosyalar '$hedef_dizin' dizinine başarıyla kopyalandı."
